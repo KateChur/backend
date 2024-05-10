@@ -65,7 +65,21 @@ class UserViewSet(viewsets.ModelViewSet):
 #                 login(request, user)
 #                 return JsonResponse({'success': True})
 #     return JsonResponse({'success': False})
-
+# def authenticate_with_plain_password(request=None, username=None, password=None):
+#     # Попытка аутентификации с хэшированным паролем
+#     user = authenticate(request=request, username=username, password=password)
+#     # Если аутентификация с хэшированным паролем не удалась, попытка с незахешированным паролем
+#     if user is None:
+#         try:
+#             user = User.objects.get(username=username)
+#             # Проверка незахешированного пароля
+#             if user.check_password(password):
+#                 return user
+#             else:
+#                 return None
+#         except User.DoesNotExist:
+#             return None
+#     return user
 
 @csrf_exempt
 def login_view(request):
@@ -79,7 +93,10 @@ def login_view(request):
         print(username, password)
         print(request.POST)
         # user = authenticate(request=request, username=username, password=password)
-        user = authenticate(request=request, username=username, password=password)
+        # user = authenticate(request=request, username=username, password=password)
+        user = User.objects.get(username=username)
+        if user.check_password(password):
+            return user
         print(user)
         if user is not None:
             login(request, user)

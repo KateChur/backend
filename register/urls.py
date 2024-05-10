@@ -9,5 +9,5 @@ router = routers.DefaultRouter()
 router.register(r'register', UserViewSet)
 urlpatterns = [
     path('', include(router.urls)),
-    path('register/', views.register, name='register'),
+    path('register/', views.register_view, name='register'),
 ]
