@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'login',
     'register',
     'locations',
+    'order',
     # 'mainpage.apps.MainpageConfig',
 
 ]

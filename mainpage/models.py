@@ -27,6 +27,7 @@ class Event_item(models.Model):
     title = models.CharField(max_length=255, unique=True)
     description = models.TextField()
     foto_file = models.ImageField(upload_to='images/')
+    link = models.TextField()
     price = models.DecimalField(decimal_places=10, max_digits=20)
     location = models.ManyToManyField(Locations, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
