@@ -31,6 +31,7 @@ urlpatterns = [
     path(r'api/v1/', include('register.urls')),
     path(r'api/v1/', include('locations.urls')),
     path(r'api/v1/', include('order.urls')),
+    path(r'api/v1/', include('recommendations.urls')),
     path(r'admin/', admin.site.urls),
 ]
 

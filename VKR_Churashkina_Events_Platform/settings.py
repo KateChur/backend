@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'register',
     'locations',
     'order',
+    'recommendations',
     # 'mainpage.apps.MainpageConfig',
 
 ]
@@ -183,3 +184,9 @@ PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
     "django.contrib.auth.hashers.ScryptPasswordHasher",
 ]
+
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'localhost:9200'
+    },
+}
