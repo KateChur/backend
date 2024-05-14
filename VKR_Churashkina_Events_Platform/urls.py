@@ -22,6 +22,8 @@ from django.conf.urls import include
 from django.conf.urls.static import static
 from django.conf import settings
 
+
+
 urlpatterns = [
     # path('admin/', admin.site.urls),
     # path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
@@ -32,6 +34,9 @@ urlpatterns = [
     path(r'api/v1/', include('locations.urls')),
     path(r'api/v1/', include('order.urls')),
     path(r'api/v1/', include('recommendations.urls')),
+    #path(r'api/v1/', include('recommendations.urls')),
+    #path(r'api/v1/recommendations/', view.recommendations_list),
+    # path(r'api/v1/', include('recommendations.urls')),
     path(r'admin/', admin.site.urls),
 ]
 

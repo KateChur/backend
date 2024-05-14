@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'register',
     'locations',
     'order',
+    # 'elasticsearch_dsl',
+    'django_elasticsearch_dsl',
     'recommendations',
     # 'mainpage.apps.MainpageConfig',
 
@@ -168,12 +170,16 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:5173']
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     )
+# }
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
 }
 
 
@@ -187,6 +193,21 @@ PASSWORD_HASHERS = [
 
 ELASTICSEARCH_DSL = {
     'default': {
-        'hosts': 'localhost:9200'
+        'hosts': 'http://localhost:9200'
     },
 }
+
+CSRF_TRUSTED_ORIGINS = ['http://localhost:5173', 'http://localhost:9200', 'http://localhost:8000']
+
+DEFAULT_AUTHENTICATION_CLASSES = [
+    # 'rest_framework.authentication.SessionAuthentication',
+    'rest_framework.authentication.BasicAuthentication',
+]
+
+# ELASTICSEARCH_INDEX_NAMES = {
+#     'recommendations.recommendation': 'products-1',
+# }
+
+CORS_ALLOW_HEADERS = [
+    'Content-Type',
+]

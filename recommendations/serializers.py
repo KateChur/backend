@@ -1,8 +1,13 @@
 from rest_framework import serializers
-from .models import Recommendation
+from .models import Product
 
 
-class RecommendationSerializer(serializers.ModelSerializer):
+class ProductSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Recommendation
+        model = Product
         fields = '__all__'
+
+# class RecommendationSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Recommendation
+#         fields = '__all__'
