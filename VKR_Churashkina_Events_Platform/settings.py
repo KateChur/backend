@@ -161,6 +161,9 @@ GRAPHENE = {
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # Укажите адрес вашего фронтенда
+]
 # CORS_ORIGIN_WHITELIST = ["http://localhost:5173/"]
 
 MEDIA_URL = 'media/'
@@ -210,4 +213,14 @@ DEFAULT_AUTHENTICATION_CLASSES = [
 
 CORS_ALLOW_HEADERS = [
     'Content-Type',
+    'Authorization',
+    'X-CSRFToken'
+]
+
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+    'PUT',
+    'DELETE',
+    'OPTIONS'
 ]

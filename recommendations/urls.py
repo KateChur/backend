@@ -3,7 +3,7 @@ from rest_framework import routers
 from django.urls import path
 from . import views
 from django.conf.urls import include
-from recommendations.views import RecommendationAPIView
+#from recommendations.views import RecommendationAPIView
 
 # router = routers.DefaultRouter()
 # router.register(r'recommendations', RecommendationViewSet)
@@ -12,5 +12,5 @@ from recommendations.views import RecommendationAPIView
 #     path('recommendations/', views.search_documents, name='recommendations'),
 # ]
 urlpatterns = [
-    path('recommendations/', RecommendationAPIView.as_view(), name='recommendations'),
+    path('recommendations/', views.post, name='recommendations'),
 ]
